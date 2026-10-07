@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Record Management – AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <h1>Student Record Management</h1>
+    <p class="subtitle">Manual CRUD + Natural-Language AI Assistant</p>
+
+    <!-- AI Chat Section -->
+    <section class="card ai-card">
+      <h2>🤖 AI Assistant</h2>
+      <p class="hint">Try: “Create Ali Khan, roll number 23, age 21, email ali@gmail.com.” or “Show all students.”</p>
+      <div id="chat-window" class="chat-window"></div>
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="chat-input" placeholder="Type a natural-language command…" autocomplete="off" required>
+        <button type="submit" class="btn btn-primary" id="chat-send">Send</button>
+        <button type="button" class="btn btn-cancel" id="chat-reset" title="Reset conversation">Reset</button>
+      </form>
+      <p id="chat-status" class="message"></p>
+    </section>
+
+    <!-- Form Section (Create) -->
+    <section class="card">
+      <h2>Add New Record (Manual)</h2>
+      <form id="record-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="Enter full name" required>
+          </div>
+          <div class="form-group">
+            <label for="roll-number">Roll Number</label>
+            <input type="number" id="roll-number" placeholder="e.g. 23" min="1" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="e.g. 21" min="1" max="120" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="student@example.com" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Record</button>
+      </form>
+      <p id="message" class="message"></p>
+    </section>
+
+    <!-- Table Section (Read, Update, Delete) -->
+    <section class="card">
+      <h2>Saved Records</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Roll No.</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="records-body">
+            <!-- Records inserted by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
